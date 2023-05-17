@@ -11,6 +11,10 @@ export default function App() {
   const [userPass, setUserPass] = useState('12345678');
   const router = useRouter();
 
+  function newUser() {
+    router.replace('/newUser');
+  }
+
   function userLogin() {
     signInWithEmailAndPassword(auth,userMail,userPass)
       .then((userCredential) => {
@@ -54,7 +58,9 @@ export default function App() {
         <Pressable>
           <Text>Esqueci a Senha</Text>
         </Pressable>
-        <Pressable>
+        <Pressable
+          onPress={newUser}
+        >
           <Text>Cadastrar</Text>
         </Pressable>
       </View>
