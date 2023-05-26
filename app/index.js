@@ -7,9 +7,13 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useRouter } from 'expo-router';
 
 export default function App() {
-  const [userMail, setUserMail] = useState('admin@admin.com');
-  const [userPass, setUserPass] = useState('12345678');
+  const [userMail, setUserMail] = useState('');
+  const [userPass, setUserPass] = useState('');
   const router = useRouter();
+
+  function replacePass() {
+    router.replace('/replacePass');
+  }
 
   function newUser() {
     router.replace('/newUser');
@@ -55,7 +59,9 @@ export default function App() {
         <Text style={styles.textButton}>Logar</Text>
       </Pressable>
       <View style={styles.subContainer}>
-        <Pressable>
+        <Pressable
+          onPress={replacePass}
+        >
           <Text>Esqueci a Senha</Text>
         </Pressable>
         <Pressable
